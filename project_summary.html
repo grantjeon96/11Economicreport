@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일일 경제 지표 모니터링 시스템 프로젝트 요약</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.07);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-amber: #f59e0b;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-top: 25px;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge-info { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        strong {
+            color: #f8fafc;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #f472b6;
+        }
+
+        pre {
+            background: #070a13;
+            border: 1px solid var(--card-border);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #e2e8f0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            border-left: 4px solid var(--accent-amber);
+            background: rgba(245, 158, 11, 0.05);
+            padding: 15px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 일일 경제 지표 모니터링 시스템</h1>
+            <div class="subtitle">프로젝트 개발 내역 및 구조 요약 보고서</div>
+        </header>
+
+        <section class="glass-card">
+            <h2>💡 프로젝트 개요</h2>
+            <p>
+                본 프로젝트는 글로벌 거시 경제 지표, 국내외 주요 주식, ETF, 환율, 원자재 및 암호화폐 등 
+                <strong>총 19개 핵심 지표</strong>의 데이터를 왜곡 없이 실시간으로 모니터링하고 시각화하는 통합 시스템입니다. 
+                매일 아침 수집된 요약 데이터를 바탕으로 인공지능 브리핑 대본을 작성하고, HTML 메일 발송 및 로컬 스피커를 통한 TTS 알림을 수행합니다.
+            </p>
+        </section>
+
+        <section class="glass-card">
+            <h2>🛠️ 핵심 구현 기술 스택</h2>
+            <div class="grid">
+                <div>
+                    <h3>Backend API (Python)</h3>
+                    <ul>
+                        <li><code>FastAPI</code> + <code>Uvicorn</code> 기반의 비동기 웹 API 구현</li>
+                        <li><code>yfinance</code> API 활용 데이터 정밀 수집 및 결측치(ffill/bfill) 처리</li>
+                        <li><code>Matplotlib</code>를 이용한 2중 축(Dual Y-Axis) 결합 분석 차트 생성</li>
+                        <li>Windows TTS(SpeechSynthesizer)와 winsound 연동 오디오 알람 구현</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Frontend Dashboard (React)</h3>
+                    <ul>
+                        <li><code>Vite</code> 빌드 도구 기반의 초경량 고성능 아키텍처</li>
+                        <li>프리미엄 <strong>Glassmorphism 다크 테마 UI</strong> 디자인</li>
+                        <li><code>Chart.js</code>를 적용한 개별 지표 상세 차트 및 5종 통합 비교 차트 시각화</li>
+                        <li>웹 화면에서 수집, 메일 전송, 알람 듣기를 제어하는 통합 컨트롤러 탑재</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2>🚀 금일 추가 반영 및 수정된 내역</h2>
+            <ul>
+                <li>
+                    <span class="badge badge-success">기능 추가</span> 
+                    <strong>CNN 공포와 탐욕 지수(FNG) 연동 완료</strong>: 
+                    야후 파이낸스 데이터 외에 CNN Dataviz API를 직접 크롤링하여 공포 탐욕 지수 데이터 연동 및 전용 해석 멘트 추가.
+                </li>
+                <li>
+                    <span class="badge badge-info">UI 개선</span> 
+                    <strong>소수점 한자리 표기 강제 통일</strong>: 
+                    대시보드 상세페이지, 카드 리스트, 툴팁 내 모든 지표 수치의 포맷을 소수점 첫째자리(예: <code>1,350.0</code>)로 고정하여 가독성 강화.
+                </li>
+                <li>
+                    <span class="badge badge-info">성능 개선</span> 
+                    <strong>음성 브리핑 낭독 속도 2배속 설정</strong>: 
+                    사용자 피드백을 수용하여 PowerShell SpeechSynthesizer 속도(Rate) 옵션을 <code>4</code>에서 2배속 체감인 <code>6</code>으로 상향 조정.
+                </li>
+                <li>
+                    <span class="badge badge-warning">오류 조치</span> 
+                    <strong>Gemini API 호출 모델명 변경</strong>: 
+                    기존 미지원 모델명인 <code>gemini-3-flash</code>를 구글 API 스튜디오에서 정상 서비스 중인 최신 <code>gemini-2.0-flash</code>로 변경하여 연동 검증.
+                </li>
+                <li>
+                    <span class="badge badge-warning">오류 조치</span> 
+                    <strong>Localhost 접속 및 서비스 기동 오류 해소</strong>: 
+                    PowerShell 실행 정책 차단 우회를 위해 <code>npm.cmd</code> 기동 방식을 도입하여 프론트엔드와 백엔드 서비스를 모두 정상 백그라운드 가동.
+                </li>
+            </ul>
+        </section>
+
+        <section class="glass-card">
+            <h2>📂 시스템 디렉토리 구조</h2>
+            <pre><code>11.경제지표모으기/
+├── backend/
+│   ├── data/                 # 수집된 JSON 데이터 및 생성된 차트 이미지 저장
+│   ├── alarm.py              # winsound 알람 연주 및 PowerShell 한국어 TTS 낭독
+│   ├── collector.py          # yfinance & CNN FNG 크롤러
+│   ├── notifier.py           # Matplotlib 차트 생성 및 이메일 전송 (SMTP)
+│   ├── main.py               # FastAPI 기반 서버 컨트롤러
+│   └── .env                  # 로컬 환경 변수 설정 파일 (Git 제외)
+├── frontend/
+│   ├── src/                  # React 컴포넌트 및 Glassmorphism CSS 스타일링
+│   ├── index.html
+│   └── vite.config.js
+├── run_daily.bat             # 스케줄러 등록용 원클릭 일괄 구동 스크립트
+├── register_scheduler.bat    # 윈도우 작업 스케줄러 자동 등록용 배치 스크립트
+└── README.md                 # 사용자 통합 매뉴얼 및 가이드</code></pre>
+        </section>
+
+        <div class="highlight-box">
+            <h3>🔒 보안 안내 (비밀번호 및 API Key 보호)</h3>
+            <p>
+                보안 유지를 위해 개인 Gmail SMTP 앱 비밀번호와 Gemini API Key가 포함된 
+                <code>.env</code> 파일들은 <code>.gitignore</code>를 통해 원격 GitHub 저장소(Repository) 업로드 시 안전하게 제외되었습니다.
+            </p>
+        </div>
+
+        <section class="glass-card">
+            <h2>💻 로컬 개발 환경 기동 방법</h2>
+            <h3>백엔드 API 서버 작동</h3>
+            <pre><code>.\.venv2\Scripts\python.exe backend/main.py</code></pre>
+            <h3>프론트엔드 대시보드 기동 (frontend 폴더로 이동 후)</h3>
+            <pre><code>npm.cmd run dev</code></pre>
+            <p>기동 완료 후 브라우저에서 <a href="http://localhost:5173" style="color: var(--accent-blue); text-decoration: none;">http://localhost:5173</a>으로 접속합니다.</p>
+        </section>
+
+        <div class="footer">
+            <p>본 프로젝트 리포지토리: <a href="https://github.com/grantjeon96/11Economicreport" style="color: var(--text-secondary);">https://github.com/grantjeon96/11Economicreport</a></p>
+            <p>© 2026 일일 경제 지표 모니터링 시스템 프로젝트 요약 보고서.</p>
+        </div>
+    </div>
+</body>
+</html>
