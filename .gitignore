@@ -1,0 +1,27 @@
+# 가상 환경 (Python Virtual Environments)
+.venv/
+.venv2/
+.venv3/
+venv/
+
+# 의존성 패키지 및 빌드 폴더 (Node / Frontend)
+node_modules/
+dist/
+.eslintcache
+
+# 환경 변수 및 설정 파일 (보안 정보 포함)
+.env
+backend/.env
+frontend/.env
+*.local
+
+# 수집 데이터 및 생성된 차트 이미지 (임시 파일)
+backend/data/metrics.json
+backend/data/report_chart.png
+backend/__pycache__/
+__pycache__/
+
+# 로그 및 임시 파일
+*.log
+.DS_Store
+Thumbs.db
